@@ -1,7 +1,7 @@
 import os
 import random
 
-DATA_DIR = "./data"
+DATA_DIR = os.path.join(os.path.dirname(__file__), "../data")
 
 def create_file(filename, content):
     with open(os.path.join(DATA_DIR, filename), "w") as f:

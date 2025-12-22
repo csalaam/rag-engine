@@ -1,8 +1,9 @@
+import os
 import chromadb # We need the raw client to match the ingestion method
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 
-DB_PATH = "./chroma_db"
+DB_PATH = os.path.join(os.path.dirname(__file__), "../chroma_db")
 COLLECTION_NAME = "rag_schematic" # This MUST match ingest.py
 
 def test_retrieval():
