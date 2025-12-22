@@ -1,0 +1,5 @@
+"I implement a Multi-Model Orchestration strategy to maximize the reliability of your RAG pipeline.
+
+The Architecture: I use OpenAI (GPT-4o) for the final synthesis where creative nuance is paramount. However, for the internal 'Self-Correction' loops—specifically Document Grading and Query Rewriting—I utilize Llama 3.3 via Groq.
+
+The Rationale: > 1. Depth of Logic: By using Groq’s high-speed inference (LPU), we can perform multiple 'grading' passes and recursive query refinements in milliseconds. Doing this on OpenAI would introduce 3–5 seconds of latency, which degrades the user experience. 2. Accuracy Parity: Per Artificial Analysis benchmarks, Llama 3.3-70B shows MMLU scores (~88.3%) virtually identical to GPT-4o. It is an industry-best model for structured logic tasks. 3. Reliability: This split ensures that the 'reasoning' power is dedicated to verifying the facts, while the 'generative' power is dedicated to the final answer, resulting in a system that is both faster and less prone to hallucinations than a single-model approach."
