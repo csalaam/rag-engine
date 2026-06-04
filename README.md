@@ -8,7 +8,7 @@ In standard RAG (Retrieval-Augmented Generation) architectures, the workflow is 
 * **The Root Cause:** Lack of verification layers between the Retrieval and Generation phases.
 
 ## 🧬 The Solution: Closed-Loop "Self-Correction"
-This system implements the **Self-RAG Architecture** (referenced from *Asai et al., ICLR 2024*). It treats retrieval as a fallible step that must be audited in real-time.
+This system implements the **Self-RAG Architecture**. It treats retrieval as a fallible step that must be audited in real-time.
 
 
 
