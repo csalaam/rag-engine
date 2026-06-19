@@ -44,7 +44,3 @@ To validate the architecture, the system was deployed against a synthetic **Adve
 ### Privacy & Performance
 * **Zero-Data Leakage:** Embeddings and Vector Storage are 100% local. Data never leaves the secure environment during indexing.
 * **Cost Efficiency:** Utilizing Llama 3 on Groq reduces API costs by ~90% compared to standard GPT-4 wrapper solutions, while maintaining parity in logic reasoning benchmarks (MMLU).
-
----
-**[Contact for Implementation]**
-*Available for Custom Integration, AWS/Azure Deployment, and Enterprise Workflows.*
