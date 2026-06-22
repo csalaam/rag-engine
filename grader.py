@@ -3,18 +3,23 @@ from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 
 class Grade(BaseModel):
-    """Binary Score for relevance check or retrieved documents"""
-    binary_score: str = Field(description="Relevance score 'yes' or 'no'")
+    """Evaluation of document utility for answering a user question."""
+    justification: str = Field(
+        description="A one-sentence extraction of facts from the document that directly address the query. If none exist, state why."
+    )
+    binary_score: str = Field(
+        description="Strictly 'yes' if actionable facts exist, or 'no' if the document is only tangentially related."
+    )
 
 def grade_documents(state):
-    
     llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
     structured_grader = llm.with_structured_output(Grade)
 
-
+    # No high-entropy phrases like "semantic meaning related to"
+    system_prompt = """You are an unyielding data auditor verifying document utility for a production pipeline.
     
-    system_prompt = """You are a grader assessing relevance of a retrieved document to a user question. If the document contains keywords or semantic meaning related to the question, grade it as relevant.
-        Give a binary score 'yes' or 'no'."""
+    Your sole mandate is to reject noise. A document is only relevant if it contains specific, actionable facts that can directly answer the user's question. 
+    If it is only topically related, shares keyword overlap, or lacks explicit utility, it must be marked as irrelevant."""
 
     grader_prompt = ChatPromptTemplate.from_messages([
         ("system", system_prompt),
@@ -33,9 +38,5 @@ def grade_documents(state):
         if score.binary_score == "yes":
             filtered_docs.append(doc)
 
-    if filtered_docs:
-        search_again = "no"  # We have good docs, so NO rewrite needed
-    else:
-        search_again = "yes" # No good docs found, YES rewrite needed
-
+    search_again = "no" if filtered_docs else "yes"
     return {"documents": filtered_docs, "run_re_write": search_again}
