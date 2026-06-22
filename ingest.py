@@ -88,7 +88,7 @@ def generate_data_store():
         chunks = split_text(documents)
         save_to_chroma(chunks)
 
-        # DEBUG: Verify file creation immediately
+        # Verify file creation immediately
         if os.path.exists(DB_PATH):
             print(f"✅ CONFIRMED: Directory {DB_PATH} exists.")
             print(f"   Contents: {os.listdir(DB_PATH)}")
