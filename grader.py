@@ -7,14 +7,12 @@ class Grade(BaseModel):
     binary_score: str = Field(description="Relevance score 'yes' or 'no'")
 
 def grade_documents(state):
-    """
-    The 'Immune System' of your RAG.
-    Logic: Checks if the documents found are actually useful.
-    """
     
     llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
     structured_grader = llm.with_structured_output(Grade)
 
+
+    
     system_prompt = """You are a grader assessing relevance of a retrieved document to a user question. If the document contains keywords or semantic meaning related to the question, grade it as relevant.
         Give a binary score 'yes' or 'no'."""
 
