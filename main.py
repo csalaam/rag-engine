@@ -42,7 +42,7 @@ def retrieve(state):
 # 3. Define the DECISION Logic (The "Conditional Edge")
 def decide_to_generate(state):
     print("---DECIDING---")
-    # If the Grader set this flag to "yes", we rewrite.
+    # If the Grader set this flag to "yes", then rewrite.
     if state["run_re_write"] == "yes":
         print("DECISION: DOCS NOT RELEVANT -> REWRITE QUERY")
         return "rewrite_query"
