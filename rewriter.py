@@ -3,7 +3,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 def rewrite_query(state):
     """
-    If the Grader found no good docs, we will use an LLM to optimize the question for a better second search.
+    If the Grader found no good docs, use an LLM to optimize the question for a better second search.
     """
 
     print("---REWRITING QUERY---")
