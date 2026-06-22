@@ -20,7 +20,7 @@ def generate(state):
     ])
 
     # Chain: Prompt -> Model -> String Output
-    # We format documents into a single string for the prompt
+    # Format documents into a single string for the prompt
     doc_txt = "\n\n".join([doc.page_content for doc in documents])
 
     generator_chain = prompt | llm | StrOutputParser()
