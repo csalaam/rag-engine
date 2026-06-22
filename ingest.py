@@ -25,8 +25,7 @@ def load_documents():
 
     print(f"🔍 Scanning {DATA_PATH}...")
 
-    # We use a generic loader that can handle multiple formats if configured
-    # For now, we enforce Markdown/Text for clean testing
+    # For now, enforce Markdown/Text for clean testing
     loader = DirectoryLoader(DATA_PATH, glob="**/*.md", loader_cls=UnstructuredMarkdownLoader)
     documents = loader.load()
 
