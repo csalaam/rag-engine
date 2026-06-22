@@ -11,6 +11,12 @@ from langchain_huggingface import HuggingFaceEmbeddings
 
 from dotenv import load_dotenv
 
+"""
+Application Logic that defines what the agent remembers, utilizes vector database logic to create a retriever node
+that uses the "similarity_search()" function to find data points via meaning and not semantic, and apply validation logic
+via the grader.py and rewriter.py files.
+"""
+
 # ---CONFIGURATION ---
 
 load_dotenv()
