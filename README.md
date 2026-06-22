@@ -49,14 +49,17 @@ To validate the architecture, the system was deployed against a synthetic **Adve
 
 The overarching objective of this project is the total subversion of data congestion and semantic drift. To bridge the gap between prototyping and enterprise-grade data integrity, the next development sprints will execute the following system upgrades:
 
-### 1. Hybrid Dense-Sparse Retrieval Layer
+### Hybrid Dense-Sparse Retrieval Layer
+
 Relying exclusively on dense vector search leaves an exact-match deficit for unique identifiers, acronyms, or raw code blocks. The retrieval node will be refactored into a LangChain EnsembleRetriever—fusing the existing ChromaDB dense coordinates with a BM25 lexical search index via Reciprocal Rank Fusion (RRF).
 
 
-### 2. Polymorphic PDF Parsing
+### Polymorphic PDF Parsing
+
 Integration of heavy document processing capabilities via structural layout parsers, extending the directory ingestion logic to seamlessly chunk and tokenize tabular and unstructured .pdf data without context window fragmentation.
 
 
-### 3. MLOps Workflow Automation (CI/CD)
+### MLOps Workflow Automation (CI/CD)
+
 Implementation of GitHub Actions workflows to establish an automated continuous integration pipeline—enforcing programmatic testing of the state graph and auto-deploying verified updates to the Streamlit production layer.
 
